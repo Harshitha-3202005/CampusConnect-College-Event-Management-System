@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CampusConnect college event management dashboard">
+  <title>CampusConnect — College Event Management</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-icon">✦</span><span>Campus<span>Connect</span><small>YOUR CAMPUS, CONNECTED</small></span></a>
+    <div class="profile"><div class="avatar">🎓</div><div><b>Hey, student!</b><small>Make campus memories.</small></div></div>
+    <p class="nav-title">MENU</p>
+    <nav><button class="nav active" data-view="dashboard">▦ &nbsp; Dashboard</button><button class="nav" data-view="events">✦ &nbsp; All Events</button><button class="nav" data-view="registrations">✓ &nbsp; My Registrations</button></nav>
+    <div class="side-note"><div>✨ Your campus life</div><p>Discover something new, meet your people, and make every event count!</p>🎨 🎤 🏆</div>
+    <div class="side-footer">● &nbsp; Made for student life</div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><small>MY CAMPUS / <b id="pageLabel">DASHBOARD</b></small><h1 id="pageTitle">Welcome to CampusConnect 👋</h1></div><button id="themeBtn" class="theme" title="Toggle dark mode">☾</button></header>
+    <section class="view active" id="dashboardView">
+      <div class="hero"><div><span class="eyebrow">YOUR CAMPUS ADVENTURE STARTS HERE</span><h2>Make memories.<br><span>Find your people.</span></h2><p>Explore events, discover your interests, and make college life unforgettable.</p><button class="primary" id="exploreBtn">Explore events &nbsp; →</button></div><div class="hero-art">🎪<span>🎵</span><span>🎨</span><span>🏆</span></div></div>
+      <div class="section-head"><div><small>AT A GLANCE</small><h2>Your event overview</h2></div><button class="primary" id="addTopBtn">＋ Add event</button></div>
+      <div class="stats"><article class="stat purple"><div>🎉</div><small>Total events</small><strong id="totalEvents">0</strong><span>Across your campus</span></article><article class="stat pink"><div>📅</div><small>Upcoming events</small><strong id="upcomingEvents">0</strong><span>Things to look forward to</span></article><article class="stat mint"><div>🎟️</div><small>My registrations</small><strong id="myCount">0</strong><span>Your next adventure awaits</span></article></div>
+      <div class="section-head"><div><small>DON'T MISS OUT</small><h2>Featured events</h2></div><button class="text-btn" data-goto="events">View all →</button></div><div id="featuredEvents" class="event-grid"></div>
+    </section>
+    <section class="view" id="eventsView"><div class="section-head"><div><small>FIND YOUR NEXT EXPERIENCE</small><h2>All campus events</h2></div><button class="primary" id="addEventBtn">＋ Add event</button></div><div class="toolbar"><input id="searchInput" type="search" placeholder="Search events or venues…" aria-label="Search events"><select id="categoryFilter" aria-label="Filter by category"><option value="all">All categories</option><option>Workshop</option><option>Culture</option><option>Sports</option><option>Technology</option><option>Music</option><option>Other</option></select><select id="dateFilter" aria-label="Filter by date"><option value="all">All dates</option><option value="upcoming">Upcoming only</option></select></div><div id="allEvents" class="event-grid"></div></section>
+    <section class="view" id="registrationsView"><div class="section-head"><div><small>YOUR PERSONAL EVENT LIST</small><h2>My registrations</h2></div></div><p class="subtext">Events you have registered for are collected here.</p><div id="registeredEvents" class="event-grid"></div></section>
+    <footer>CampusConnect <span>•</span> Discover. Participate. Connect.</footer>
+  </main>
+</div>
+<div class="modal hidden" id="eventModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-card"><button class="close" id="closeModal" aria-label="Close">×</button><h2 id="modalTitle">Add a campus event</h2><p class="subtext">Fill in the details to share an event.</p><form id="eventForm"><input type="hidden" id="eventId"><label>Event name *<input id="eventName" required maxlength="80" placeholder="e.g. Annual Tech Fest"></label><div class="form-row"><label>Category<select id="eventCategory"><option>Technology</option><option>Workshop</option><option>Culture</option><option>Sports</option><option>Music</option><option>Other</option></select></label><label>Date *<input id="eventDate" type="date" required></label></div><div class="form-row"><label>Venue *<input id="eventVenue" required maxlength="80" placeholder="e.g. Main Auditorium"></label><label>Time<input id="eventTime" type="time" value="10:00"></label></div><label>Description<textarea id="eventDescription" rows="3" maxlength="300" placeholder="What is this event about?"></textarea></label><label>Organiser<input id="eventOrganiser" maxlength="80" placeholder="e.g. Coding Club"></label><button class="primary full" type="submit">Save event</button></form></div></div>
+<div id="toast" class="toast" role="status"></div><script src="script.js"></script>
+</body></html>
